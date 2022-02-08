@@ -84,17 +84,112 @@
 # userD=UserDict()
 # print(userD.data)
 
+# # *****************
+# # Customized dictionary
 
-# Customized dictionary
+# from collections import UserDict
 
-from collections import UserDict
+# # create a dictionary where deletion is not allowed
+# class MyDict(UserDict):
+#     # function to stop deletion from dictionary
+#     def __del__(self):
+#         raise RuntimeError("Deletion not allowed")
+#     # function to stop pop from dictionary
+#     def pop(self, s=None):
+#         raise RuntimeError("Deletion not allowed")
+#     # 
+#     # to stop popitem from dictionary
+#     def popitem(self, s=None):
+#         raise RuntimeError("Deletion not allowed")
 
-# create a dictionary where deletion is not allowed
-class MyDict(UserDict):
-    # function to stop deletion from dictionary
-    def __del__(self):
-        raise RuntimeError("Deletion not allowed")
-    # function to stop pop from dictionary
-    def pop(self, s=None):
-        raise RuntimeError("Deletion not allowed")
-        
+# d=MyDict({'a':1,'b':2,'c':3})
+# print("Original dictionary")
+# print(d)
+# d.pop(1)
+
+# # *************************
+
+# # UserList
+
+# from collections import UserList
+# L=[1,2,3,4]
+# # creating a UserList
+# userL=UserList(L)
+# print(userL.data)
+
+# # creating empty userlist
+# userL = UserList()
+# print(userL.data)
+
+
+# # ***************
+
+# from collections import UserList
+
+# # 
+# # creating a List where deletion is not allowed
+# class MyList(UserList):
+#     # function to stop deletion from list
+#     def remove(self, s=None):
+#         raise RuntimeError("Deletion not allowed")
+
+#     # function to stop pop from list
+#     def pop(self,s=None):
+#         raise RuntimeError("Deletion not allowed")
+
+# # Driver code
+# L=MyList([1,2,3,4])
+# print("original list")
+
+# # inserting to list
+# L.append(5)
+# print("After insertion")
+# print(L)
+
+# # Deleting from list
+# L.remove()
+
+
+# # *******************************
+
+# UserString
+# # M1
+# from collections import UserString
+# d=12344
+
+# # Creating an UserDict
+# userS=UserString(d)
+# print(userS.data)
+
+# # creating an empty UserDict
+# userS=UserString("")
+# print(userS.data)
+
+# # *****************************
+
+# # M2
+# from collections import UserString
+
+# # creating a mutable string
+# class Mystring(UserString):
+#     # function to append to string
+#     def append(self, s):
+#         self.data+=s
+
+#     # function to remove from string
+#     def remove(self,s):
+#         self.data= self.data.replace(s,"")
+
+# # Driver's code
+# s1=Mystring("Geeks")
+# print("original string:", s1.data)
+
+# # appending to string
+# s1.append("s")
+# print("string after appending:",s1.data)
+
+# # Removing from string
+# s1.remove("e")
+# print("String after Removing", s1.data)
+
+# # **********************************************
